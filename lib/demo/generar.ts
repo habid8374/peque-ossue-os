@@ -61,7 +61,7 @@ const CIUDADES: [string, string, number][] = [
   ["Bolívar", "Cartagena", 6],
   ["Magdalena", "Santa Marta", 4],
   ["Córdoba", "Montería", 2],
-  ["Bogotá D.C.", "Bogotá", 3],
+  ["Bogotá D.C.", "Bogotá", 2],
   ["Antioquia", "Medellín", 2],
 ];
 
@@ -175,7 +175,8 @@ export async function generarDatosDemo(ahora = new Date()): Promise<DatosDemo> {
   // ---------- Pedidos ----------
   // 8 clientes sin compras (segmento "sin compra"); el resto compra con distinta frecuencia.
   const compradores = clientes.slice(0, totalClientes - 8);
-  const lealtad = new Map(compradores.map((c) => [c.id, r() < 0.3 ? 4 + r() * 4 : 1]));
+  // Clientas frecuentes: sobre todo de Sabanalarga y municipios cercanos.
+  const lealtad = new Map(compradores.map((c) => [c.id, c.departamento === "Atlántico" && r() < 0.32 ? 3 + r() * 3 : c.departamento === "Atlántico" ? 1 : 0.6]));
   const objetivo = 172;
   const fechas: Date[] = [];
   const dias: { t: number; peso: number }[] = [];

@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { EVENTO_CAMBIO, repo, type Repositorio } from "./repositorio";
 
 /**
@@ -9,12 +9,15 @@ import { EVENTO_CAMBIO, repo, type Repositorio } from "./repositorio";
  */
 export function useDatos<T>(consulta: (r: Repositorio) => Promise<T>, deps: unknown[] = []): T | undefined {
   const [valor, setValor] = useState<{ v: T } | undefined>(undefined);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const ejecutar = useCallback(consulta, deps);
+  const ultima = useRef(consulta);
+  const clave = JSON.stringify(deps);
+  useEffect(() => {
+    ultima.current = consulta;
+  });
   useEffect(() => {
     let vivo = true;
     const cargar = () => {
-      ejecutar(repo()).then((v) => {
+      ultima.current(repo()).then((v) => {
         if (vivo) setValor({ v });
       });
     };
@@ -24,7 +27,7 @@ export function useDatos<T>(consulta: (r: Repositorio) => Promise<T>, deps: unkn
       vivo = false;
       window.removeEventListener(EVENTO_CAMBIO, cargar);
     };
-  }, [ejecutar]);
+  }, [clave]);
   return valor?.v;
 }
 
