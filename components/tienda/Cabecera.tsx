@@ -70,8 +70,8 @@ export function Cabecera() {
         <div className="flex flex-1 justify-center lg:flex-none lg:justify-start">
           <Logo tam={52} />
         </div>
-        <nav aria-label="Principal" className="ml-6 hidden flex-1 lg:block">
-          <ul className="flex items-center gap-1 xl:gap-2">
+        <nav aria-label="Principal" className="ml-4 hidden flex-1 lg:block xl:ml-6">
+          <ul className="flex items-center gap-0.5 xl:gap-2">
             {MENU.map((m) => {
               const activo = ruta !== "/" && m.href.startsWith(ruta) && ruta.length > 1;
               return (
@@ -79,7 +79,7 @@ export function Cabecera() {
                   <Link
                     href={m.href}
                     aria-current={activo ? "page" : undefined}
-                    className="inline-flex min-h-11 items-center rounded-full px-3 text-[0.95rem] font-bold hover:bg-papel aria-[current=page]:bg-rosa-nube"
+                    className="inline-flex min-h-11 items-center rounded-full px-2 text-[0.9rem] font-bold whitespace-nowrap hover:bg-papel aria-[current=page]:bg-rosa-nube xl:px-3 xl:text-[0.95rem]"
                   >
                     {m.nombre}
                   </Link>

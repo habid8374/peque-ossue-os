@@ -16,8 +16,8 @@ export function Logo({ tam = 56, conTexto = true, href = "/" }: { tam?: number; 
       />
       {conTexto && (
         <span className="leading-none">
-          <span className="titulo block text-[1.35rem] text-cacao sm:text-2xl">Pequeños Sueños</span>
-          <span className="mt-1 hidden text-[0.72rem] font-bold tracking-[0.12em] text-cacao-suave uppercase sm:block">Ropa infantil · Sabanalarga</span>
+          <span className="titulo block text-[1.35rem] text-cacao sm:text-2xl lg:text-xl xl:text-2xl">Pequeños Sueños</span>
+          <span className="mt-1 hidden text-[0.72rem] font-bold tracking-[0.12em] text-cacao-suave uppercase sm:block lg:hidden xl:block">Ropa infantil · Sabanalarga</span>
         </span>
       )}
     </Link>

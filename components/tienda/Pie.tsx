@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { IconoInstagram, IconoUbicacion, IconoWhatsApp } from "@/components/Iconos";
+import { IconoCandado, IconoInstagram, IconoUbicacion, IconoWhatsApp } from "@/components/Iconos";
 import { CATEGORIAS, MARCA, enlaceWhatsApp } from "@/lib/marca";
 import { FormSuscripcion } from "./FormSuscripcion";
 
@@ -92,13 +92,18 @@ export function Pie() {
         </div>
       </div>
       <div className="border-t border-crema/15">
-        <div className="contenedor flex flex-col gap-2 py-5 text-sm text-crema/85 sm:flex-row sm:justify-between">
+        <div className="contenedor flex flex-col gap-2 py-5 text-sm text-crema/85 sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} {MARCA.nombre}. Sitio de demostración: los pagos y pedidos son simulados.</p>
-          <p>
+          <p className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/admin" rel="nofollow" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-crema/30 px-4 font-bold text-crema hover:bg-crema/10">
+              <IconoCandado tam={16} /> Panel administrativo
+            </Link>
+            <span>
             Diseño y desarrollo:{" "}
             <a href="https://axentiatechnologies.com" className="font-bold underline underline-offset-2" rel="noopener" target="_blank">
               Axentia Technologies
             </a>
+            </span>
           </p>
         </div>
       </div>

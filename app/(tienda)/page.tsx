@@ -52,6 +52,7 @@ export default function Portada() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(tienda).replace(/</g, "\\u003c") }} />
       <HeroPortada />
+      <div className="h-14 sm:h-20" aria-hidden="true" />
 
       {/* Compra por edad */}
       <section aria-labelledby="titulo-edad" className="contenedor">

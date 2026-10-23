@@ -17,6 +17,7 @@ Todo lo marcado `TODO(CLIENTE)` en el código. Nada de esto se inventó: se comp
 - [ ] Política de cambios y devoluciones (`/envios-y-cambios`).
 
 ## Catálogo
+- [ ] **Fotos del héroe de la portada** (`public/hero/`): son fotos de demostración. Confirmar la licencia de uso o reemplazarlas por fotos propias con autorización escrita de los padres o acudientes.
 - [ ] **Subir fotos reales** de cada prenda (hoy son ilustraciones). Ponerlas en `referencias/productos/` o subirlas desde el panel.
 - [ ] Inventario, precios, tallas y nombres reales (los actuales son de ejemplo, `lib/catalogo-semilla.ts`).
 
