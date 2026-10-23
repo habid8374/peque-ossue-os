@@ -9,6 +9,11 @@ import { indiceEtapa, puedeCancelar } from "@/lib/pedidos";
 import { ErrorRepositorio, repo } from "@/lib/repositorio";
 import type { Pedido } from "@/lib/tipos";
 
+function esHoy(iso: string) {
+  const f = (d: Date) => d.toLocaleDateString("es-CO", { timeZone: "America/Bogota" });
+  return f(new Date(iso)) === f(new Date());
+}
+
 export function InsigniaEstado({ estado }: { estado: Pedido["estado"] }) {
   const estilos: Record<Pedido["estado"], string> = {
     recibido: "bg-durazno text-cacao",
@@ -89,7 +94,7 @@ export function SeguimientoPedido({ pedido, correo }: { pedido: Pedido; correo: 
           <div>
             <p className="sobretitulo">Pedido {pedido.numero}</p>
             <h2 className="mt-2 text-3xl sm:text-4xl" aria-live="polite">
-              {cancelado ? "Pedido cancelado" : entregado ? `Entregado el ${diaSemana(eventoEntrega?.fecha ?? pedido.fechaEstimada)}` : <>Llega el <em className="acento">{diaSemana(pedido.fechaEstimada)}</em></>}
+              {cancelado ? "Pedido cancelado" : entregado ? `Entregado el ${diaSemana(eventoEntrega?.fecha ?? pedido.fechaEstimada)}` : esHoy(pedido.fechaEstimada) ? <>Llega <em className="acento">hoy</em></> : <>Llega el <em className="acento">{diaSemana(pedido.fechaEstimada)}</em></>}
             </h2>
             <p className="mt-2 text-cacao-suave">Comprado el {fecha(pedido.creado)}</p>
           </div>

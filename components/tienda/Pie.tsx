@@ -22,7 +22,7 @@ export function Pie() {
       <div className="contenedor grid gap-10 py-14 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-4">
-            <Image src="/marca/logo-pequenos-suenos.webp" alt="Logo de Pequeños Sueños" width={88} height={88} className="rounded-full" />
+            <Image src="/marca/logo-pequenos-suenos.webp" alt="Logo de Pequeños Sueños" width={88} height={88} className="size-[88px] shrink-0 rounded-full" />
             <p className="titulo text-2xl">
               Donde vestir también es <em className="font-italica italic text-rosa-nube">soñar.</em>
             </p>

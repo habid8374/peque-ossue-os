@@ -1,5 +1,6 @@
 import { hashClave, nuevaSal } from "../clave";
-import { CONFIG_INICIAL, generarDatosDemo } from "../demo/generar";
+import { catalogoSemilla } from "../catalogo-semilla";
+import { CONFIG_INICIAL } from "../config-inicial";
 import { ESTADOS_CANCELABLES, VERSION_POLITICA } from "../marca";
 import { costoEnvio, diasDeEntrega, sumarDiasHabiles } from "../pedidos";
 import type { Campana, Cliente, Configuracion, Pedido, Producto, Suscriptor } from "../tipos";
@@ -65,13 +66,37 @@ export class RepositorioLocal implements Repositorio {
         this.escribir(datos, false);
       }
       this.cache = datos;
-      this.cargando = null;
       return datos;
     })();
-    return this.cargando;
+    const promesa = this.cargando;
+    // Se limpia después de asignar: si la carga no tiene await, terminaría antes de la asignación.
+    promesa.finally(() => {
+      if (this.cargando === promesa) this.cargando = null;
+    });
+    return promesa;
   }
 
+  /** Lee la base sin sembrarla; null si este navegador aún no tiene datos. */
+  private leerSinSembrar(): BaseDatos | null {
+    if (this.cache) return this.cache;
+    try {
+      const crudo = localStorage.getItem(CLAVE_DB);
+      const datos = crudo ? (JSON.parse(crudo) as BaseDatos) : null;
+      if (datos?.version === 1) {
+        this.cache = datos;
+        return datos;
+      }
+    } catch {
+      /* datos dañados: se resiembran al escribir */
+    }
+    return null;
+  }
+
+  private catalogoInicial: Producto[] | null = null;
+
   private async semilla(): Promise<BaseDatos> {
+    // El generador (clientes y pedidos de ejemplo) se carga solo cuando hace falta.
+    const { generarDatosDemo } = await import("../demo/generar");
     const demo = await generarDatosDemo();
     return { version: 1, ...demo, campanas: [], suscriptores: [] };
   }
@@ -87,12 +112,16 @@ export class RepositorioLocal implements Repositorio {
   }
 
   // ---------------- Catálogo ----------------
+  // Catálogo y configuración no necesitan sembrar la demo completa (portada más liviana).
   async listarProductos() {
-    return (await this.db()).productos;
+    const db = this.leerSinSembrar();
+    if (db) return db.productos;
+    this.catalogoInicial ??= catalogoSemilla(new Date());
+    return this.catalogoInicial;
   }
 
   async productoPorSlug(slug: string) {
-    return (await this.db()).productos.find((p) => p.slug === slug);
+    return (await this.listarProductos()).find((p) => p.slug === slug);
   }
 
   async guardarProducto(producto: Producto) {
@@ -304,7 +333,7 @@ export class RepositorioLocal implements Repositorio {
 
   // ---------------- Configuración y campañas ----------------
   async configuracion() {
-    return (await this.db()).config ?? CONFIG_INICIAL;
+    return this.leerSinSembrar()?.config ?? CONFIG_INICIAL;
   }
 
   async guardarConfiguracion(config: Configuracion) {

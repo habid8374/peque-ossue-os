@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import { Catalogo } from "@/components/tienda/Catalogo";
+import { Catalogo, CatalogoRespaldo } from "@/components/tienda/Catalogo";
 import { EncabezadoPagina } from "@/components/tienda/Encabezado";
 import { CATALOGO } from "@/lib/catalogo-semilla";
 
@@ -23,7 +23,7 @@ export default function PaginaTienda() {
         texto="Prendas escogidas una a una, del primer body al vestido del cumpleaños."
       />
       <div className="contenedor">
-        <Suspense fallback={<p className="py-10">Cargando productos…</p>}>
+        <Suspense fallback={<CatalogoRespaldo iniciales={CATALOGO} />}>
           <Catalogo iniciales={CATALOGO} />
         </Suspense>
       </div>

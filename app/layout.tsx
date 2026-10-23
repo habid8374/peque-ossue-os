@@ -3,26 +3,29 @@ import localFont from "next/font/local";
 import { MARCA, SITE_URL } from "@/lib/marca";
 import "./globals.css";
 
+// Fuentes: Fraunces (SIL OFL) y Nunito (SIL OFL), recortadas a caracteres latinos y
+// español, con los ejes fijados que usa el sitio (ver docs/PLAN-DISENO.md).
+
 const display = localFont({
-  src: "./fuentes/fraunces-latin-soft-normal.woff2",
+  src: "./fuentes/fraunces-suave.woff2",
   variable: "--fuente-display",
-  weight: "100 900",
+  weight: "400 600",
   display: "swap",
 });
 
 const italica = localFont({
-  src: "./fuentes/fraunces-latin-wght-italic.woff2",
+  src: "./fuentes/fraunces-italica.woff2",
   variable: "--fuente-italica",
-  weight: "100 900",
+  weight: "400",
   style: "italic",
   display: "swap",
   preload: false,
 });
 
 const sans = localFont({
-  src: "./fuentes/nunito-latin-wght-normal.woff2",
+  src: "./fuentes/nunito.woff2",
   variable: "--fuente-sans",
-  weight: "200 1000",
+  weight: "400 800",
   display: "swap",
 });
 

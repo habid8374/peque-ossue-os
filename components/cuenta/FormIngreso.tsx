@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { Campo } from "@/components/Formularios";
-import { CUENTA_DEMO } from "@/lib/demo/generar";
+import { CUENTA_DEMO } from "@/lib/config-inicial";
 import { ErrorRepositorio, repo } from "@/lib/repositorio";
 import { rutaInternaSegura } from "@/lib/seguridad";
 

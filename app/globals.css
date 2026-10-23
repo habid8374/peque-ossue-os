@@ -106,13 +106,13 @@
   }
   .boton-sec:hover { background: var(--color-papel); }
   .enlace {
-    color: var(--color-rosa);
+    color: var(--color-rosa-hondo);
     font-weight: 700;
     text-decoration: underline;
     text-underline-offset: 3px;
     text-decoration-thickness: 1.5px;
   }
-  .enlace:hover { color: var(--color-rosa-hondo); }
+  .enlace:hover { color: var(--color-cacao); }
   .etiqueta-campo {
     display: block;
     font-weight: 700;

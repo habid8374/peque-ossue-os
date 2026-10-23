@@ -1,7 +1,7 @@
 "use client";
 
 import { useCarrito } from "@/lib/carrito";
-import { CONFIG_INICIAL } from "@/lib/demo/generar";
+import { CONFIG_INICIAL } from "@/lib/config-inicial";
 import { useDatos, useMontado } from "@/lib/hooks";
 import { costoEnvio } from "@/lib/pedidos";
 

@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { Logo } from "@/components/Logo";
 import { IconoBolsa, IconoBuscar, IconoCerrar, IconoCorazon, IconoCuenta, IconoMenu, IconoCaja } from "@/components/Iconos";
 import { useCarrito, useFavoritos } from "@/lib/carrito";
-import { CONFIG_INICIAL } from "@/lib/demo/generar";
+import { CONFIG_INICIAL } from "@/lib/config-inicial";
 import { useDatos, useMontado } from "@/lib/hooks";
 import { CATEGORIAS } from "@/lib/marca";
 
@@ -55,7 +55,7 @@ export function Cabecera() {
   const nFav = montado ? ids.length : 0;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-linea bg-crema/95 backdrop-blur supports-[backdrop-filter]:bg-crema/85">
+    <header className="sticky top-0 z-40 border-b border-linea bg-crema">
       <p className="bg-cacao px-4 py-2 text-center text-[0.8rem] font-semibold tracking-wide text-crema">{anuncio}</p>
       <div className="contenedor flex h-[72px] items-center gap-2 lg:h-20">
         <button

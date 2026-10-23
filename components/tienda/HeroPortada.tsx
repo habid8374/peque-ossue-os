@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { IconoWhatsApp } from "@/components/Iconos";
-import { CONFIG_INICIAL } from "@/lib/demo/generar";
+import { CONFIG_INICIAL } from "@/lib/config-inicial";
 import { useDatos } from "@/lib/hooks";
 import { MARCA, enlaceWhatsApp } from "@/lib/marca";
 import { rutaInternaSegura } from "@/lib/seguridad";

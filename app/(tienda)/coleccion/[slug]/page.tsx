@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
-import { Catalogo } from "@/components/tienda/Catalogo";
+import { Catalogo, CatalogoRespaldo } from "@/components/tienda/Catalogo";
 import { EncabezadoPagina } from "@/components/tienda/Encabezado";
 import { CATALOGO } from "@/lib/catalogo-semilla";
 import { CATEGORIAS, categoriaPorId } from "@/lib/marca";
@@ -31,7 +31,7 @@ export default async function PaginaColeccion({ params }: PageProps<"/coleccion/
     <>
       <EncabezadoPagina migas={[{ href: "/", nombre: "Inicio" }, { href: "/tienda", nombre: "Tienda" }, { nombre: c.nombre }]} sobretitulo={c.edad} titulo={c.nombre} texto={c.descripcion} />
       <div className="contenedor">
-        <Suspense fallback={<p className="py-10">Cargando productos…</p>}>
+        <Suspense fallback={<CatalogoRespaldo iniciales={CATALOGO} categoriaFija={c.id} />}>
           <Catalogo iniciales={CATALOGO} categoriaFija={c.id} />
         </Suspense>
       </div>

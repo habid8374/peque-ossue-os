@@ -223,3 +223,23 @@ export function Catalogo({ iniciales, categoriaFija }: { iniciales: Producto[]; 
     </div>
   );
 }
+
+/** Versión sin filtros para el HTML del servidor (evita el salto de diseño y deja los productos indexables). */
+export function CatalogoRespaldo({ iniciales, categoriaFija }: { iniciales: Producto[]; categoriaFija?: CategoriaId }) {
+  const lista = categoriaFija ? iniciales.filter((p) => p.categoria === categoriaFija) : iniciales;
+  return (
+    <div className="grid gap-8 lg:grid-cols-[260px_1fr] lg:gap-12">
+      <div className="hidden lg:block" />
+      <div>
+        <p className="mb-6 flex min-h-11 items-center font-bold">{lista.length} productos</p>
+        <ul className="grid grid-cols-2 gap-x-4 gap-y-10 md:grid-cols-3 xl:grid-cols-4">
+          {lista.map((p, i) => (
+            <li key={p.id}>
+              <TarjetaProducto producto={p} prioridad={i < 4} nivel={2} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  );
+}

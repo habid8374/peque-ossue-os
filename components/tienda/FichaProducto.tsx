@@ -195,7 +195,7 @@ export function FichaProducto({ slug, inicial, relacionadosIniciales }: { slug: 
       )}
 
       {/* Barra de compra fija en celular */}
-      <div className="barra-fija fixed inset-x-0 bottom-0 z-30 border-t border-linea bg-papel/95 px-4 py-3 backdrop-blur lg:hidden">
+      <div className="barra-fija fixed inset-x-0 bottom-0 z-30 border-t border-linea bg-papel px-4 py-3 lg:hidden">
         <div className="flex items-center gap-3">
           <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-bold">{producto.nombre}</p>

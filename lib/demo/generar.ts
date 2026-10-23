@@ -3,34 +3,14 @@ import { VERSION_POLITICA } from "../marca";
 import { diasDeEntrega, sumarDiasHabiles } from "../pedidos";
 import type { Cliente, Configuracion, EstadoPedido, EventoPedido, MetodoPago, Pedido, Producto } from "../tipos";
 import { hashClave } from "../clave";
+import { CONFIG_INICIAL, CUENTA_DEMO } from "../config-inicial";
+
+export { CONFIG_INICIAL, CUENTA_DEMO };
 
 // Generador determinista de datos de demostración. Las fechas son relativas al
 // momento en que se cargan, para que el panel siempre se vea "al día".
 
-export const CUENTA_DEMO = { correo: "demo@correo-demo.co", clave: "demo1234" };
 
-export const CONFIG_INICIAL: Configuracion = {
-  // TODO(CLIENTE): valores reales de envío gratis y tarifa.
-  envioGratisDesde: 200000,
-  costoEnvio: 12000,
-  // TODO(CLIENTE): confirmar con qué transportadoras trabaja la tienda.
-  transportadoras: ["Mensajero local", "Interrapidísimo", "Servientrega", "Coordinadora", "Envía"],
-  anuncio: "Envíos a toda Colombia · Asesoría por WhatsApp",
-  banners: [
-    {
-      titulo: "Ropa suave para sueños grandes",
-      texto: "Prendas escogidas una a una para bebés y niños, desde el primer body hasta el vestido del cumpleaños.",
-      boton: "Ver la colección",
-      enlace: "/tienda",
-    },
-    {
-      titulo: "El día del bautizo, en marfil",
-      texto: "Vestidos, conjuntos de lino y mantas para un día que se recuerda siempre.",
-      boton: "Ver bautizo",
-      enlace: "/coleccion/bautizo",
-    },
-  ],
-};
 
 function mulberry32(semilla: number) {
   let a = semilla;
@@ -287,6 +267,15 @@ export async function generarDatosDemo(ahora = new Date()): Promise<DatosDemo> {
   demoPedidos[1].historial[demoPedidos[1].historial.length - 1].nota = "Tu pedido salió con el mensajero esta mañana.";
   demoPedidos[1].notaCliente = "Te escribiremos por WhatsApp cuando el mensajero esté cerca.";
   demoPedidos[2].metodoPago = "contraentrega";
+
+  // Pedidos aún en camino: la fecha estimada nunca queda en el pasado.
+  const finDeHoy = new Date(hoy);
+  finDeHoy.setHours(18, 0, 0, 0);
+  for (const p of [...pedidos, ...demoPedidos]) {
+    if (p.estado === "entregado" || p.estado === "cancelado") continue;
+    const minimo = p.estado === "en_reparto" ? finDeHoy : sumarDiasHabiles(finDeHoy, 1);
+    if (new Date(p.fechaEstimada) < minimo) p.fechaEstimada = minimo.toISOString();
+  }
 
   return {
     productos,
