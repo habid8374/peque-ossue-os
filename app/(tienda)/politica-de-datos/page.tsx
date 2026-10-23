@@ -26,7 +26,7 @@ export default function PoliticaDatos() {
           </p>
           {/* TODO(CLIENTE): razón social o nombre del titular, NIT o cédula, correo para peticiones de datos. */}
           <Pendiente>
-            <p>Razón social o nombre del titular del negocio, NIT o cédula, y correo electrónico para consultas y reclamos sobre datos personales.</p>
+            <p>Pronto publicaremos los datos del responsable (nombre o razón social, NIT y correo para consultas y reclamos sobre datos personales).</p>
           </Pendiente>
 
           <h2>2. Datos que recolectamos</h2>

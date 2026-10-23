@@ -208,7 +208,7 @@ export function SeguimientoPedido({ pedido, correo }: { pedido: Pedido; correo: 
           <h2 id="titulo-cancelar" className="text-2xl">
             ¿Cancelar el pedido {pedido.numero}?
           </h2>
-          <p className="mt-3 text-cacao-suave">Las prendas vuelven a la tienda y, si pagaste, te devolvemos el dinero (en la demo no hay cobros reales).</p>
+          <p className="mt-3 text-cacao-suave">Las prendas vuelven a la tienda y, si pagaste, te devolvemos el dinero (en esta demostración no hay cobros reales).</p>
           {error && (
             <p role="alert" className="error-campo mt-3">
               {error}

@@ -52,7 +52,7 @@ export function VistaCampanas() {
     <div className="space-y-8">
       <div>
         <h1 className="text-4xl">Campañas de correo</h1>
-        <p className="mt-1 text-cacao-suave">Solo se escribe a quienes autorizaron correos ({autorizados.length} de {datos.clientes.length} clientes). En la demo el envío es simulado.</p>
+        <p className="mt-1 text-cacao-suave">Solo se escribe a quienes autorizaron correos ({autorizados.length} de {datos.clientes.length} clientes). En esta demostración el envío es simulado.</p>
       </div>
 
       <div className="grid gap-8 xl:grid-cols-2">
@@ -115,7 +115,9 @@ export function VistaCampanas() {
             <div className="px-6 py-8">
               <Image src="/marca/logo-pequenos-suenos.webp" alt="" width={72} height={72} className="mx-auto rounded-full" />
               <div className="mt-6 whitespace-pre-line">{contenido.replaceAll("{nombre}", ejemplo)}</div>
-              <p className="mt-8 border-t border-linea pt-4 text-center text-xs text-cacao-suave">Recibes este correo porque autorizaste novedades de Pequeños Sueños. Darse de baja: enlace de baja (se activa con la integración de correo).</p>
+              <p className="mt-8 border-t border-linea pt-4 text-center text-xs text-cacao-suave">Recibes este correo porque autorizaste novedades de Pequeños Sueños. Si ya no quieres recibirlos, puedes{" "}
+                <span className="underline">darte de baja</span>.
+              </p>
             </div>
           </div>
         </section>

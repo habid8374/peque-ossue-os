@@ -34,7 +34,6 @@ export function FormIngresoAdmin() {
       <button type="submit" className="boton w-full" disabled={enviando}>
         {enviando ? "Ingresando…" : "Ingresar"}
       </button>
-      <p className="text-sm text-cacao-suave">La contraseña de la demo se configura con la variable de entorno ADMIN_DEMO_PASSWORD.</p>
     </form>
   );
 }

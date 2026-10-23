@@ -172,7 +172,7 @@ export default function Portada() {
             {[
               { i: <IconoCamion tam={28} />, t: "Envíos a toda Colombia", d: "En Sabanalarga entregamos al día hábil siguiente. Sigue tu pedido paso a paso." },
               { i: <IconoChat tam={28} />, t: "Asesoría por WhatsApp", d: "¿Dudas con la talla? Te ayudamos a escoger antes de comprar." },
-              { i: <IconoCandado tam={28} />, t: "Pagos seguros", d: "Tarjeta, PSE o contraentrega. En esta demo los pagos son simulados." },
+              { i: <IconoCandado tam={28} />, t: "Pagos seguros", d: "Paga con tarjeta, PSE o en efectivo al recibir tu pedido." },
               { i: <IconoUbicacion tam={28} />, t: "Tienda física", d: `Visítanos en el ${MARCA.direccion}, ${MARCA.ciudad}.` },
             ].map((b) => (
               <li key={b.t}>

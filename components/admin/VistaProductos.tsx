@@ -204,7 +204,7 @@ function EditorProducto({ inicial, esNuevo, alCerrar }: { inicial: Producto; esN
         <div className="mt-6 grid gap-6 md:grid-cols-[200px_1fr]">
           <div>
             <ImagenProducto producto={p} sizes="200px" />
-            <p className="mt-2 text-xs text-cacao-suave">Vista previa. Sin fotos se muestra la ilustración.</p>
+            <p className="mt-2 text-xs text-cacao-suave">Vista previa. Si no subes fotos, se muestra un dibujo de la prenda.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="sm:col-span-2">
@@ -307,7 +307,7 @@ function EditorProducto({ inicial, esNuevo, alCerrar }: { inicial: Producto; esN
             </div>
             <div className="flex-1">
               <label htmlFor="pr-il" className="etiqueta-campo">
-                Ilustración
+                Dibujo
               </label>
               <select id="pr-il" className="campo" value={p.ilustracion} onChange={(e) => fijar("ilustracion", e.target.value as Ilustracion)}>
                 {ILUSTRACIONES.map((x) => (
@@ -346,7 +346,7 @@ function EditorProducto({ inicial, esNuevo, alCerrar }: { inicial: Producto; esN
               </label>
             )}
           </div>
-          <p className="mt-1 text-xs text-cacao-suave">Se reducen a WebP en el navegador. En producción se suben a un almacenamiento (Supabase Storage, Vercel Blob).</p>
+          <p className="mt-1 text-xs text-cacao-suave">Formatos JPG, PNG o WebP. Las fotos se ajustan solas al tamaño adecuado.</p>
         </fieldset>
 
         {error && (

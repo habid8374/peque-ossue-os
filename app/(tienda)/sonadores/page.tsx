@@ -35,7 +35,7 @@ export default function Sonadores() {
       <div className="contenedor">
         {/* TODO(CLIENTE): fotos de clientes con autorización escrita de sus padres o acudientes. */}
         <Pendiente>
-          <p>Aquí irá la galería de fotos de los soñadores. Solo se publican fotos de menores con autorización expresa de sus padres o acudientes.</p>
+          <p>Muy pronto verás aquí la galería de nuestros soñadores. Solo publicamos fotos con autorización de sus padres o acudientes.</p>
         </Pendiente>
         <ul className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-4" aria-label="Espacios para fotos">
           {MARCOS.map((m, i) => (

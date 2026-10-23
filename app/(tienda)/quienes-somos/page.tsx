@@ -30,7 +30,7 @@ export default function QuienesSomos() {
           <p>Nuestro lema lo dice todo: {MARCA.lema} Escogemos cada prenda pensando en la comodidad de los pequeños y en los momentos que sus familias quieren recordar.</p>
           {/* TODO(CLIENTE): historia real de la tienda, fundadora, año de apertura, fotos del local. */}
           <Pendiente>
-            <p>La historia de la tienda (quién la fundó, desde cuándo y por qué) se escribe con la dueña. No la inventamos.</p>
+            <p>Muy pronto te contaremos aquí cómo nació Pequeños Sueños.</p>
           </Pendiente>
           <h2>Visítanos</h2>
           <p>
@@ -38,7 +38,7 @@ export default function QuienesSomos() {
           </p>
           {/* TODO(CLIENTE): horario de atención. */}
           <Pendiente>
-            <p>Horario de atención por confirmar.</p>
+            <p>Pronto publicaremos nuestro horario de atención. Escríbenos por WhatsApp para confirmar antes de tu visita.</p>
           </Pendiente>
         </Prosa>
         <Image src="/marca/logo-pequenos-suenos.webp" alt="Logo de Pequeños Sueños: arcoíris sobre una nube con luna y estrellas" width={360} height={360} className="mx-auto rounded-full" />

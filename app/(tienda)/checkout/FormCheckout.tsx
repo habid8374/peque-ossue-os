@@ -18,8 +18,8 @@ import { validarEnServidor, type Errores } from "@/lib/validar";
 import { CLAVE_ULTIMO_PEDIDO } from "@/lib/claves";
 
 const PAGOS: { id: MetodoPago; detalle: string }[] = [
-  { id: "tarjeta", detalle: "Crédito o débito. En producción el pago se hace en la pasarela segura; aquí no pedimos datos de tarjeta." },
-  { id: "pse", detalle: "Débito desde tu cuenta bancaria. En la demo se aprueba automáticamente." },
+  { id: "tarjeta", detalle: "Crédito o débito. Al ser una demostración, no te pediremos los datos de la tarjeta." },
+  { id: "pse", detalle: "Débito desde tu cuenta bancaria. En esta demostración se aprueba automáticamente." },
   { id: "contraentrega", detalle: "Pagas en efectivo cuando recibes el pedido." },
 ];
 

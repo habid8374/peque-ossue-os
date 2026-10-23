@@ -24,7 +24,7 @@ export function MarcoAdmin({ children }: { children: React.ReactNode }) {
   async function restablecer() {
     await repo().restablecer();
     dialogo.current?.close();
-    setAviso("Datos demo restablecidos.");
+    setAviso("Datos de ejemplo restablecidos.");
     setTimeout(() => setAviso(""), 4000);
   }
 
@@ -65,7 +65,7 @@ export function MarcoAdmin({ children }: { children: React.ReactNode }) {
             Ver la tienda ↗
           </Link>
           <button type="button" onClick={() => dialogo.current?.showModal()} className="flex min-h-11 w-full items-center rounded-xl px-3 text-left text-sm font-bold hover:bg-crema">
-            Restablecer datos demo
+            Restablecer datos de ejemplo
           </button>
           <button type="button" onClick={salir} className="flex min-h-11 w-full items-center rounded-xl px-3 text-left text-sm font-bold hover:bg-crema">
             Cerrar sesión
@@ -74,7 +74,7 @@ export function MarcoAdmin({ children }: { children: React.ReactNode }) {
       </aside>
       <div className="min-w-0">
         <div className="flex flex-wrap items-center gap-2 border-b border-linea bg-durazno px-4 py-2 text-sm lg:px-8">
-          <strong>Modo demostración:</strong> los datos viven en este navegador. Los pagos y correos son simulados.
+          <strong>Modo demostración:</strong> los pagos y los correos son simulados.
           <span className="ml-auto flex gap-2 lg:hidden">
             <button type="button" className="min-h-11 rounded-full px-3 font-bold underline" onClick={() => dialogo.current?.showModal()}>
               Restablecer
@@ -96,9 +96,9 @@ export function MarcoAdmin({ children }: { children: React.ReactNode }) {
       <dialog ref={dialogo} aria-labelledby="titulo-restablecer" className="m-auto w-[min(92vw,460px)] rounded-3xl bg-papel p-0 text-cacao backdrop:bg-cacao/40">
         <div className="p-6">
           <h2 id="titulo-restablecer" className="text-2xl">
-            ¿Restablecer los datos demo?
+            ¿Restablecer los datos de ejemplo?
           </h2>
-          <p className="mt-3 text-cacao-suave">Se borran los pedidos, clientes, productos y campañas creados en este navegador y se cargan de nuevo los datos de ejemplo.</p>
+          <p className="mt-3 text-cacao-suave">Se borran los pedidos, clientes, productos y campañas creados durante la demostración y se cargan de nuevo los datos de ejemplo.</p>
           <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end">
             <button type="button" className="boton-sec" onClick={() => dialogo.current?.close()}>
               Cancelar

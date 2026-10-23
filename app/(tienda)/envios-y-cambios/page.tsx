@@ -31,12 +31,12 @@ export default function EnviosYCambios() {
           </ul>
           {/* TODO(CLIENTE): tarifas reales, monto de envío gratis y transportadoras. */}
           <Pendiente>
-            <p>Los tiempos, tarifas, el monto para envío gratis y las transportadoras de esta demo son de ejemplo y se configuran desde el panel cuando la tienda los confirme.</p>
+            <p>Pronto publicaremos las tarifas de envío y las transportadoras con las que trabajamos. Los tiempos de arriba son aproximados.</p>
           </Pendiente>
           <h2>Cambios y devoluciones</h2>
           {/* TODO(CLIENTE): política de cambios (plazo, estado de la prenda, quién paga el envío). */}
           <Pendiente>
-            <p>La política de cambios (plazo, condiciones de la prenda y costo del envío) se define con la tienda. Mientras tanto, escríbenos por WhatsApp al {MARCA.whatsappVisible}.</p>
+            <p>Pronto publicaremos nuestra política de cambios. Mientras tanto, escríbenos por WhatsApp al {MARCA.whatsappVisible}.</p>
           </Pendiente>
           <p>
             Recuerda que, según el Estatuto del Consumidor (Ley 1480 de 2011), en las compras a distancia tienes derecho de retracto dentro de los cinco días hábiles siguientes a la entrega, con las excepciones de ley.

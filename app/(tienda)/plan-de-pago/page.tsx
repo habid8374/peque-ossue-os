@@ -27,7 +27,7 @@ export default function PlanDePago() {
         <Prosa>
           {/* TODO(CLIENTE): condiciones reales del plan de pago (abono inicial, plazos, tiempo de separado, si aplica a ofertas). */}
           <Pendiente>
-            <p>Las condiciones del plan de pago (abono inicial, número de cuotas, tiempo máximo para recoger y prendas a las que aplica) se publican aquí cuando la tienda las confirme. No inventamos condiciones.</p>
+            <p>Muy pronto publicaremos aquí las condiciones del plan de pago: abono inicial, cuotas y tiempo para recoger tus prendas. Mientras tanto, pregúntanos por WhatsApp.</p>
           </Pendiente>
           <h2>¿Cómo funciona?</h2>
           <ul>

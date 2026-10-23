@@ -20,7 +20,7 @@ function Formulario({ inicial }: { inicial: Configuracion }) {
     e.preventDefault();
     if (!(c.envioGratisDesde >= 0) || !(c.costoEnvio >= 0)) return setAviso({ ok: false, texto: "Los valores de envío deben ser números positivos." });
     for (const b of c.banners) {
-      if (rutaInternaSegura(b.enlace, "") !== b.enlace) return setAviso({ ok: false, texto: `El enlace “${b.enlace}” debe ser una ruta interna que empiece por /, por ejemplo /tienda.` });
+      if (rutaInternaSegura(b.enlace, "") !== b.enlace) return setAviso({ ok: false, texto: `El enlace “${b.enlace}” debe llevar a una página de esta tienda, por ejemplo /tienda o /coleccion/bautizo.` });
     }
     const transportadoras = c.transportadoras.map((t) => t.trim()).filter(Boolean);
     if (!transportadoras.length) return setAviso({ ok: false, texto: "Agrega al menos una transportadora." });
@@ -92,7 +92,7 @@ function Formulario({ inicial }: { inicial: Configuracion }) {
             </div>
             <div>
               <label htmlFor={`cf-b${i}-e`} className="etiqueta-campo">
-                Enlace (ruta interna)
+                Página a la que lleva el botón
               </label>
               <input id={`cf-b${i}-e`} className="campo" maxLength={120} value={b.enlace} onChange={(e) => banner(i, "enlace", e.target.value)} placeholder="/tienda" />
             </div>
