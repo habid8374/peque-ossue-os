@@ -146,6 +146,9 @@
     border-radius: 1.5rem;
   }
   .sobretitulo {
+    font-family: var(--font-sans);
+    font-variation-settings: normal;
+    line-height: 1.4;
     font-size: 0.78rem;
     font-weight: 800;
     letter-spacing: 0.14em;
@@ -162,11 +165,6 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-  }
-  .borde-nube {
-    --nube: radial-gradient(circle at 50% 100%, transparent 0 0);
-    -webkit-mask: radial-gradient(28px 18px at 50% 0, #0000 98%, #000) 50% 0 / 52px 100% repeat-x;
-    mask: radial-gradient(28px 18px at 50% 0, #0000 98%, #000) 50% 0 / 52px 100% repeat-x;
   }
 }
 

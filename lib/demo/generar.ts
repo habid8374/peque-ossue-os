@@ -202,7 +202,8 @@ export async function generarDatosDemo(ahora = new Date()): Promise<DatosDemo> {
   const metodos: MetodoPago[] = ["tarjeta", "pse", "contraentrega"];
 
   const crearPedido = (cliente: Cliente, creado: Date, estado: EstadoPedido, cancelado: boolean, itemsFijos?: { p: Producto; talla: string; cantidad: number }[]) => {
-    const disponibles = productos.filter((p) => new Date(p.creado).getTime() <= creado.getTime());
+    // Los productos de catálogo base (más de 100 días) se venden todo el año; los nuevos, solo desde su llegada.
+    const disponibles = productos.filter((p) => new Date(p.creado).getTime() <= creado.getTime() || hoy - new Date(p.creado).getTime() > 100 * DIA);
     const nItems = itemsFijos ? itemsFijos.length : r() < 0.55 ? 1 : r() < 0.8 ? 2 : 3;
     const elegidos = itemsFijos ?? Array.from({ length: nItems }, () => {
       const p = elegirPonderado(r, disponibles, (x) => (x.categoria === "accesorios" ? 1.4 : x.categoria === "bautizo" ? 0.45 : 1));
