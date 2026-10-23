@@ -1,0 +1,12 @@
+node_modules
+.next
+out
+.env
+.env*.local
+.vercel
+referencias/
+next-env.d.ts
+*.tsbuildinfo
+test-results/
+playwright-report/
+.lighthouse-tmp/

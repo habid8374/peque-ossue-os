@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+@theme {
+  --color-crema: #fbf6ef;
+  --color-papel: #fffdf9;
+  --color-cacao: #4a3438;
+  --color-cacao-suave: #7a6064;
+  --color-linea: #eadfd6;
+  --color-rosa: #a8495a;
+  --color-rosa-hondo: #8c3b4a;
+  --color-rosa-nube: #f3d9d6;
+  --color-lila: #e4d9f0;
+  --color-lila-hondo: #6b5594;
+  --color-salvia: #dde6d5;
+  --color-salvia-honda: #4f6447;
+  --color-durazno: #f8e2c4;
+  --color-durazno-hondo: #8a5a1c;
+  --color-alerta: #a3352f;
+
+  --font-display: var(--fuente-display), "Iowan Old Style", Georgia, serif;
+  --font-italica: var(--fuente-italica), Georgia, serif;
+  --font-sans: var(--fuente-sans), ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --radius-arco: 999px 999px 1.25rem 1.25rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background: var(--color-crema);
+    color: var(--color-cacao);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, .titulo {
+    font-family: var(--font-display);
+    font-variation-settings: "SOFT" 100, "opsz" 72;
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  em.acento, .acento {
+    font-family: var(--font-italica);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-rosa);
+  }
+  p { text-wrap: pretty; }
+  :focus-visible {
+    outline: 3px solid var(--color-lila-hondo);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection { background: var(--color-lila); }
+  [hidden] { display: none !important; }
+}
+
+@layer components {
+  .contenedor {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    .contenedor { padding-inline: 2rem; }
+  }
+  .boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    background: var(--color-rosa);
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    text-align: center;
+  }
+  .boton:hover { background: var(--color-rosa-hondo); }
+  .boton:active { transform: translateY(1px); }
+  .boton:disabled { opacity: 0.55; cursor: not-allowed; }
+  .boton-sec {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--color-cacao);
+    color: var(--color-cacao);
+    font-weight: 700;
+    background: transparent;
+    transition: background-color 0.2s ease;
+  }
+  .boton-sec:hover { background: var(--color-papel); }
+  .enlace {
+    color: var(--color-rosa);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1.5px;
+  }
+  .enlace:hover { color: var(--color-rosa-hondo); }
+  .etiqueta-campo {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 0.35rem;
+  }
+  .campo {
+    width: 100%;
+    min-height: 48px;
+    padding: 0.7rem 0.95rem;
+    border-radius: 0.85rem;
+    border: 1.5px solid #d8c9c0;
+    background: var(--color-papel);
+    color: var(--color-cacao);
+    font-size: 1rem;
+  }
+  .campo:focus-visible { outline-offset: 1px; border-color: var(--color-lila-hondo); }
+  .campo[aria-invalid="true"] { border-color: var(--color-alerta); }
+  .error-campo {
+    color: var(--color-alerta);
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-top: 0.3rem;
+  }
+  .arco {
+    border-radius: var(--radius-arco);
+  }
+  .tarjeta {
+    background: var(--color-papel);
+    border: 1px solid var(--color-linea);
+    border-radius: 1.5rem;
+  }
+  .sobretitulo {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-cacao-suave);
+  }
+  .solo-lectores {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .borde-nube {
+    --nube: radial-gradient(circle at 50% 100%, transparent 0 0);
+    -webkit-mask: radial-gradient(28px 18px at 50% 0, #0000 98%, #000) 50% 0 / 52px 100% repeat-x;
+    mask: radial-gradient(28px 18px at 50% 0, #0000 98%, #000) 50% 0 / 52px 100% repeat-x;
+  }
+}
+
+/* Arcoíris del héroe: el único momento animado del sitio. */
+@keyframes dibujar-arco {
+  from { stroke-dashoffset: var(--largo); }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.arco-anim path {
+  stroke-dasharray: var(--largo);
+  stroke-dashoffset: var(--largo);
+  animation: dibujar-arco 1.6s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+.arco-anim path:nth-child(2) { animation-delay: 0.18s; }
+.arco-anim path:nth-child(3) { animation-delay: 0.36s; }
+.arco-anim path:nth-child(4) { animation-delay: 0.54s; }
+.arco-anim .nube-heroe { opacity: 0; animation: aparecer 0.8s ease 1.2s forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .arco-anim path { stroke-dashoffset: 0; animation: none; }
+  .arco-anim .nube-heroe { opacity: 1; animation: none; }
+}
+
+/* Cuando hay barra fija inferior (ficha de producto en celular), el botón de WhatsApp sube. */
+@media (max-width: 1023px) {
+  body:has(.barra-fija) .boton-whatsapp { bottom: 6.25rem; }
+  body:has(.barra-fija) footer { padding-bottom: 5.5rem; }
+}
+/* Espacio al final para que el botón flotante no tape el pie. */
+footer { padding-bottom: 4.5rem; }
+@media (min-width: 640px) { footer { padding-bottom: 0; } }
